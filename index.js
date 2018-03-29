@@ -1,13 +1,13 @@
 //'use strict'
 const express = require('express');
 const morgan = require('morgan');
-    app = express();
-    app.use(morgan('combined'));
-    app.set('views',__dirname+'/views/')
-    app.set('view engine','pug');
-    //app.set('view engine','ejs');
-app 
-    .get('/',(req,res)=>res.sendFile(__dirname+'/views/index.html'))   
+app = express();
+app.use(morgan('combined'));
+app.set('views', __dirname + '/views/')
+app.set('view engine', 'pug');
+//app.set('view engine','ejs');
+app
+    .get('/', (req, res) => res.sendFile(__dirname + '/views/index.html'))
     //uso de parámetros en Express, la notacion de un parámetro en la ruta es con :nom_parametro
     //y eparado por guiones en caso de que hayan mas parámetros /:par1-:par2
     .get('/user/:id-:name-:age', (req, res) => {
@@ -19,7 +19,7 @@ app
     })
     // El metodo redirect reedirecciona a la dirección que se le indique
     .get('/redirect', (req, res) => {
-        res.redirect(301,'http://http://www.udenar.edu.co/');
+        res.redirect(301, 'http://http://www.udenar.edu.co/');
     })
     //El método json retorna obhetos en notación JSON
     .get('/json', (req, res) => {
@@ -37,5 +37,6 @@ app
         res.render('index.pug');
     })
     // En este método se  captura el error al ingresar un adirección no váida.
-    .get('*',(req,res)=>{res.end('Ruta no encontrada') })
+    .get('*', (req, res) => { res.end('Ruta no encontrada') })
     .listen(3000, () => console.log('Iniciando express en el puerto 3000'));  
+
