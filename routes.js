@@ -29,8 +29,6 @@ router
     })
     .get('/render_pug', (req, res) => {
         res.render('index.pug');
-    })
-    // En este método se  captura el error al ingresar un adirección no váida.
-    .get('*', (req, res) => { res.end('Ruta no encontrada') })
+    }) 
 
     module.exports = router; // exportar el módulo routes
